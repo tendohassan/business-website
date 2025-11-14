@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>256 Solutions | Business Technology Services</title>
+  
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg-primary: #1a1a2e;
+      --bg-secondary: #16213e;
+      --bg-tertiary: #0f3460;
+      --accent-primary: #e94560;
+      --text-primary: #ffffff;
+      --text-secondary: #b8b8b8;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --border-radius: 12px;
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    ul {
+      list-style: none;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background-color: var(--accent-primary);
+      color: var(--text-primary);
+      border-radius: var(--border-radius);
+      font-weight: 500;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(233, 69, 96, 0.2);
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      border: 1px solid var(--accent-primary);
+    }
+    
+    .btn-outline:hover {
+      background-color: var(--accent-primary);
+    }
+    
+    .section {
+      padding: 80px 0;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 4px;
+      background-color: var(--accent-primary);
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .section-subtitle {
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Header & Navigation */
+    header {
+      background-color: var(--bg-secondary);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+    }
+    
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    
+    .logo span {
+      color: var(--accent-primary);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+    
+    .nav-link {
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+    
+    .nav-link:hover {
+      color: var(--accent-primary);
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: var(--accent-primary);
+      bottom: -5px;
+      left: 0;
+      transition: var(--transition);
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(22, 33, 62, 0.9), rgba(22, 33, 62, 0.9)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+    }
+    
+    .hero-content {
+      max-width: 700px;
+    }
+    
+    .hero-title {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      margin-bottom: 30px;
+    }
+    
+    .hero-btns {
+      display: flex;
+      gap: 15px;
+    }
+    
+    /* Services Section */
+    .services {
+      background-color: var(--bg-secondary);
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .service-card {
+      background-color: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 30px;
+      transition: var(--transition);
+      text-align: center;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .service-icon {
+      font-size: 3rem;
+      color: var(--accent-primary);
+      margin-bottom: 20px;
+    }
+    
+    .service-title {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+    
+    .service-description {
+      color: var(--text-secondary);
+    }
+    
+    /* About Section */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+    
+    .about-text h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    
+    .about-text p {
+      margin-bottom: 20px;
+      color: var(--text-secondary);
+    }
+    
+    .about-features {
+      margin-top: 30px;
+    }
+    
+    .feature {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    .feature i {
+      color: var(--accent-primary);
+      margin-right: 10px;
+    }
+    
+    .about-image {
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    /* Portfolio Section */
+    .portfolio {
+      background-color: var(--bg-secondary);
+    }
+    
+    .portfolio-filters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+    
+    .filter-btn {
+      padding: 8px 20px;
+      background-color: transparent;
+      border: 1px solid var(--accent-primary);
+      color: var(--text-primary);
+      border-radius: 30px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .filter-btn.active, .filter-btn:hover {
+      background-color: var(--accent-primary);
+    }
+    
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+    }
+    
+    .portfolio-item {
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      position: relative;
+      height: 250px;
+    }
+    
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    
+    .portfolio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(22, 33, 62, 0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: var(--transition);
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+    
+    .portfolio-item:hover img {
+      transform: scale(1.1);
+    }
+    
+    .portfolio-title {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    
+    .portfolio-category {
+      color: var(--accent-primary);
+      font-size: 0.9rem;
+    }
+    
+    /* Testimonials Section */
+    .testimonials-slider {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+    
+    .testimonial-card {
+      background-color: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 30px;
+      text-align: center;
+    }
+    
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 20px;
+      color: var(--text-secondary);
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .author-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 15px;
+    }
+    
+    .author-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .author-info h4 {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+    
+    .author-info p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+    
+    /* Team Section */
+    .team {
+      background-color: var(--bg-secondary);
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    
+    .team-member {
+      text-align: center;
+    }
+    
+    .member-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 20px;
+      border: 5px solid var(--card-bg);
+    }
+    
+    .member-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .member-name {
+      font-size: 1.3rem;
+      margin-bottom: 5px;
+    }
+    
+    .member-role {
+      color: var(--accent-primary);
+      margin-bottom: 15px;
+    }
+    
+    .member-social {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    
+    .member-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: var(--card-bg);
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+    
+    .member-social a:hover {
+      background-color: var(--accent-primary);
+    }
+    
+    /* Contact Section */
+    .contact-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .contact-icon {
+      font-size: 1.5rem;
+      color: var(--accent-primary);
+      margin-right: 15px;
+    }
+    
+    .contact-details h4 {
+      margin-bottom: 5px;
+    }
+    
+    .contact-details p {
+      color: var(--text-secondary);
+    }
+    
+    .contact-form .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-input {
+      width: 100%;
+      padding: 15px;
+      background-color: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--border-radius);
+      color: var(--text-primary);
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .form-input:focus {
+      outline: none;
+      border-color: var(--accent-primary);
+    }
+    
+    textarea.form-input {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--bg-tertiary);
+      padding: 60px 0 30px;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    
+    .footer-column h3 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 3px;
+      background-color: var(--accent-primary);
+      bottom: -8px;
+      left: 0;
+    }
+    
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .footer-links a {
+      color: var(--text-secondary);
+      transition: var(--transition);
+    }
+    
+    .footer-links a:hover {
+      color: var(--accent-primary);
+      padding-left: 5px;
+    }
+    
+    .footer-social {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: var(--card-bg);
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+    
+    .footer-social a:hover {
+      background-color: var(--accent-primary);
+      transform: translateY(-5px);
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .about-content,
+      .contact-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-title {
+        font-size: 2.8rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .hero-btns {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-title {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav class="navbar">
+        <a href="#" class="logo">256<span>Solutions</span></a>
+        
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+          <li><a href="#team" class="nav-link">Team</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        
+        <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Innovative Technology Solutions for Your Business</h1>
+        <p class="hero-subtitle">We provide cutting-edge web development, mobile applications, and digital solutions to help your business thrive in the digital age.</p>
+        <div class="hero-btns">
+          <a href="#contact" class="btn">Get Started</a>
+          <a href="#portfolio" class="btn btn-outline">View Our Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">We offer a comprehensive range of digital services to meet your business needs</p>
+      </div>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <h3 class="service-title">Web Development</h3>
+          <p class="service-description">Custom websites and web applications built with modern technologies for optimal performance and user experience.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3 class="service-title">Mobile Apps</h3>
+          <p class="service-description">Native and cross-platform mobile applications designed to engage users and drive business growth.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3 class="service-title">Digital Marketing</h3>
+          <p class="service-description">Comprehensive digital marketing strategies to increase your online visibility and generate qualified leads.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-cloud"></i>
+          </div>
+          <h3 class="service-title">Cloud Solutions</h3>
+          <p class="service-description">Scalable cloud infrastructure and services to optimize your operations and reduce IT costs.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3 class="service-title">Cybersecurity</h3>
+          <p class="service-description">Robust security solutions to protect your digital assets and ensure compliance with industry standards.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <h3 class="service-title">IT Consulting</h3>
+          <p class="service-description">Strategic IT consulting to align technology with your business goals and drive digital transformation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h3>About 256 Solutions</h3>
+          <p>256 Solutions is a leading technology company dedicated to providing innovative digital solutions for businesses of all sizes. With a team of experienced professionals, we help our clients navigate the complexities of the digital landscape.</p>
+          <p>Our mission is to empower businesses with cutting-edge technology that drives growth, enhances efficiency, and creates meaningful connections with their audience.</p>
+          
+          <div class="about-features">
+            <div class="feature">
+              <i class="fas fa-check"></i>
+              <span>Proven track record of success</span>
+            </div>
+            <div class="feature">
+              <i class="fas fa-check"></i>
+              <span>Industry-leading expertise</span>
+            </div>
+            <div class="feature">
+              <i class="fas fa-check"></i>
+              <span>Customized solutions for every client</span>
+            </div>
+            <div class="feature">
+              <i class="fas fa-check"></i>
+              <span>Ongoing support and maintenance</span>
+            </div>
+          </div>
+          
+          <a href="#contact" class="btn" style="margin-top: 20px;">Learn More</a>
+        </div>
+        
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" alt="About Prime Solutions">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section class="portfolio section" id="portfolio">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Our Portfolio</h2>
+        <p class="section-subtitle">Explore some of our recent projects and success stories</p>
+      </div>
+      
+      <div class="portfolio-filters">
+        <button class="filter-btn active">All</button>
+        <button class="filter-btn">Web Design</button>
+        <button class="filter-btn">Web Development</button>
+        <button class="filter-btn">Mobile Apps</button>
+      </div>
+      
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80" alt="E-commerce Platform">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-title">E-commerce Platform</h3>
+            <p class="portfolio-category">Web Development</p>
+          </div>
+        </div>
+        
+        <div class="portfolio-item">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" alt="Finance Dashboard">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-title">Finance Dashboard</h3>
+            <p class="portfolio-category">Web Design</p>
+          </div>
+        </div>
+        
+        <div class="portfolio-item">
+          <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" alt="Mobile Banking App">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-title">Mobile Banking App</h3>
+            <p class="portfolio-category">Mobile Apps</p>
+          </div>
+        </div>
+        
+        <div class="portfolio-item">
+          <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" alt="CRM System">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-title">CRM System</h3>
+            <p class="portfolio-category">Web Development</p>
+          </div>
+        </div>
+        
+        <div class="portfolio-item">
+          <img src="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1948&q=80" alt="Travel Booking Platform">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-title">Travel Booking Platform</h3>
+            <p class="portfolio-category">Web Design</p>
+          </div>
+        </div>
+        
+        <div class="portfolio-item">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" alt="Fitness Tracking App">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-title">Fitness Tracking App</h3>
+            <p class="portfolio-category">Mobile Apps</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Client Testimonials</h2>
+        <p class="section-subtitle">What our clients say about working with us</p>
+      </div>
+      
+      <div class="testimonials-slider">
+        <div class="testimonial-card">
+          <p class="testimonial-text">"256 Solutions transformed our online presence with a stunning website and effective digital marketing strategy. Our customer engagement has increased by 40% since working with them."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <img src="" alt="Client">
+            </div>
+            <div class="author-info">
+              <h4>Makuru Winifred</h4>
+              <p>CEO, Tech Innovations</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team section" id="team">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Our Team</h2>
+        <p class="section-subtitle">Meet the talented professionals behind Prime Solutions</p>
+      </div>
+      
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="member-image">
+            <img src="" alt="Team Member">
+          </div>
+          <h3 class="member-name">Michael Jordan</h3>
+          <p class="member-role">CEO & Founder</p>
+          <div class="member-social">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+        
+        <div class="team-member">
+          <div class="member-image">
+            <img src="" alt="Team Member">
+          </div>
+          <h3 class="member-name">Nakato Sarah</h3>
+          <p class="member-role">CTO</p>
+          <div class="member-social">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+        
+        <div class="team-member">
+          <div class="member-image">
+            <img src="" alt="Team Member">
+          </div>
+          <h3 class="member-name">David seith</h3>
+          <p class="member-role">Head of Marketing</p>
+          <div class="member-social">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+        
+        <div class="team-member">
+          <div class="member-image">
+            <img src="" alt="Team Member">
+          </div>
+          <h3 class="member-name">Tendo Hassan</h3>
+          <p class="member-role">Lead Developer</p>
+          <div class="member-social">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Contact Us</h2>
+        <p class="section-subtitle">Get in touch with us to discuss your project</p>
+      </div>
+      
+      <div class="contact-content">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-details">
+              <h4>Our Location</h4>
+              <p>123 Business Avenue, Suite 100<br>Kampala, Uganda</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="contact-details">
+              <h4>Phone Number</h4>
+              <p>+256 708 556 962</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-details">
+              <h4>Email Address</h4>
+              <p>tendohassan004@gmail.com</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="contact-details">
+              <h4>Working Hours</h4>
+              <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form">
+          <form>
+            <div class="form-group">
+              <input type="text" class="form-input" placeholder="Your Name" required>
+            </div>
+            
+            <div class="form-group">
+              <input type="email" class="form-input" placeholder="Your Email" required>
+            </div>
+            
+            <div class="form-group">
+              <input type="text" class="form-input" placeholder="Subject">
+            </div>
+            
+            <div class="form-group">
+              <textarea class="form-input" placeholder="Your Message" rows="5" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>256 Solutions</h3>
+          <p>We provide innovative technology solutions to help businesses thrive in the digital age.</p>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#team">Team</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Services</h3>
+          <div class="footer-links">
+            <a href="#">Web Development</a>
+            <a href="#">Mobile Apps</a>
+            <a href="#">Digital Marketing</a>
+            <a href="#">Cloud Solutions</a>
+            <a href="#">Cybersecurity</a>
+            <a href="#">IT Consulting</a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Newsletter</h3>
+          <p>Subscribe to our newsletter for the latest updates and offers.</p>
+          <form>
+            <input type="email" class="form-input" placeholder="Your Email" style="margin-bottom: 10px;">
+            <button type="submit" class="btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 256 Solutions. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
+    
+    // Portfolio Filtering
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        // Add active class to clicked button
+        button.classList.add('active');
+        
+        const filterValue = button.textContent;
+        
+        portfolioItems.forEach(item => {
+          if (filterValue === 'All' || item.querySelector('.portfolio-category').textContent === filterValue) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+    
+    // Smooth Scrolling for Navigation Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
